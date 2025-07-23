@@ -11,8 +11,12 @@ console.log(bugs);
 app.get('/api/bug', (req, res) => {
     res.send(bugs)
 })
+
 // app.get('/api/bug/save', (req, res) => { })
-// app.get('/api/bug/:bugId', (req, res) => { })
+
+app.get('/api/bug/:bugId', (req, res) => {
+    res.send(bugs.find(bug => bug._id === req.params.bugId))
+})
 // app.get('/api/bug/:bugId/remove', (req, res) => { })
 
 
