@@ -4,6 +4,9 @@ import { utilService } from './services/util.service.js'
 
 const app = express()
 // app.get('/', (req,res) => res.send('Hello there!'))
+const bugs = utilService.readJsonFile('./data/bug.json')
+console.log(bugs);
+
 
 app.get('/api/bug', (req, res) => { 
     
