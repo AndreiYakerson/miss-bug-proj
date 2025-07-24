@@ -21,10 +21,8 @@ app.get('/api/bug/:bugId', (req, res) => {
 })
 
 app.get('/api/bug/:bugId/remove', (req, res) => {
-    const idx = bugs.findIndex(bug => bug._id === req.params.bugId)
-    if (idx === -1) return res.status(404).send('Bug not found')
-    bugs.slice(idx, 1)
-    res.send(`Bug with Id ${req.params.bugId} removed successfully`)
+    bugService.remove(req.params.bugId)
+    .then(() => res.send(`Bug with Id ${req.params.bugId} removed`))  
 })
 
 
