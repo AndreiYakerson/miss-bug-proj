@@ -1,4 +1,12 @@
+export const bugService = {
     query,
+    getById,
+    remove
+}
+
+
+
+
 function query() {
     return Promise.resolve(bugs)
 }
