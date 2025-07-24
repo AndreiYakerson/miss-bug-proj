@@ -94,5 +94,82 @@
         "description": "Hello bug",
         "_id": "KHHvo4",
         "createdAt": 1753378131038
+    },
+    {
+        "title": "sss",
+        "severity": "1",
+        "description": "undefined",
+        "_id": "meKEdI",
+        "createdAt": 1753385726361
+    },
+    {
+        "title": "Button click not responsive",
+        "severity": "2",
+        "description": "Submit button does not respond",
+        "_id": "9WUeij",
+        "createdAt": 1753385875995
+    },
+    {
+        "title": "Bug 1753386666700",
+        "severity": "3",
+        "description": "undefined",
+        "_id": "4QIFLJ",
+        "createdAt": 1753386674341
+    },
+    {
+        "title": "Bug 1753386697730",
+        "severity": "3",
+        "description": "undefined",
+        "_id": "3n72Xv",
+        "createdAt": 1753386699827
+    },
+    {
+        "title": "Button click not responsive",
+        "severity": "4",
+        "description": "Submit button does not respond",
+        "_id": "nV14Tq",
+        "createdAt": 1753386779662
+    },
+    {
+        "title": "Button click not responsive",
+        "severity": "4",
+        "description": "Submit button does not respond",
+        "_id": "IqxPkS",
+        "createdAt": 1753386782538
+    },
+    {
+        "title": "null",
+        "severity": "3",
+        "description": "undefined",
+        "_id": "2ooGJy",
+        "createdAt": 1753386833856
+    },
+    {
+        "title": "Bug 1753386968938",
+        "severity": "3",
+        "description": "undefined",
+        "_id": "Amhz41",
+        "createdAt": 1753386971912
+    },
+    {
+        "title": "Bug 1753386980979",
+        "severity": "3",
+        "description": "Bug description",
+        "_id": "K1meJb",
+        "createdAt": 1753386984625
+    },
+    {
+        "title": "Hello",
+        "severity": "5",
+        "description": "My bad",
+        "_id": "Wp5hfD",
+        "createdAt": 1753387033503
+    },
+    {
+        "title": "Cannot save a new car",
+        "severity": "0",
+        "description": "problem when clicking Save",
+        "_id": "B02aUh",
+        "createdAt": 1753387552862
     }
 ]
