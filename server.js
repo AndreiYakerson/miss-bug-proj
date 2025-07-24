@@ -1,6 +1,7 @@
 import { log } from 'console'
 import express from 'express'
 import { utilService } from './services/util.service.js'
+import {bugService} from './services/bug.service.js'
 
 const app = express()
 // app.get('/', (req,res) => res.send('Hello there!'))
