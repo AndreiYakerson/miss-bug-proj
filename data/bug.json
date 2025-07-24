@@ -1,6 +1,6 @@
 [
     {
-        "_id": "abc123",
+        "_id": "abc333",
         "title": "Cannot save a new car",
         "description": "problem when clicking Save",
         "severity": 3,
@@ -12,13 +12,6 @@
         "description": "problem when clicking Save",
         "severity": 3,
         "createdAt": 1632107359454
-    },
-    {
-        "_id": "def456",
-        "title": "Error loading dashboard",
-        "description": "dashboard fails to load on login",
-        "severity": 2,
-        "createdAt": 1621107359454
     },
     {
         "_id": "ghi789",
