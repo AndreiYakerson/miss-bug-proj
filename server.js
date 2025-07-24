@@ -16,7 +16,8 @@ app.get('/api/bug', (req, res) => {
 // app.get('/api/bug/save', (req, res) => { })
 
 app.get('/api/bug/:bugId', (req, res) => {
-    res.send(bugs.find(bug => bug._id === req.params.bugId))
+    bugService.getById(req.params.bugId)
+    .then(bug => res.send(bug))
 })
 
 app.get('/api/bug/:bugId/remove', (req, res) => {
