@@ -9,7 +9,8 @@ console.log(bugs);
 
 
 app.get('/api/bug', (req, res) => {
-    res.send(bugs)
+    bugService.query()
+    .then(bugs => res.send(bugs))
 })
 
 // app.get('/api/bug/save', (req, res) => { })
