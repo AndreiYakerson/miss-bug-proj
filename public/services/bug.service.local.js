@@ -1,9 +1,7 @@
-import { utilService } from './util.service.js'
+import axios from '../lib/axios.js'
 import { storageService } from './async-storage.service.js'
 
-const STORAGE_KEY = 'bugs'
-
-_createBugs()
+const URL = '/api/bug'
 
 export const bugService = {
     query,
@@ -14,7 +12,8 @@ export const bugService = {
 }
 
 function query(filterBy) {
-    return storageService.query(STORAGE_KEY)
+    return axios.get(URL)
+    .then(res => res.data)
     .then(bugs => {
 
         if (filterBy.txt) {
@@ -46,34 +45,6 @@ function save(bug) {
     }
 }
 
-function _createBugs() {
-    let bugs = utilService.loadFromStorage(STORAGE_KEY)
-    if (bugs && bugs.length > 0) return 
-
-    bugs = [
-        {
-            title: "Infinite Loop Detected",
-            severity: 4,
-            _id: "1NF1N1T3"
-        },
-        {
-            title: "Keyboard Not Found",
-            severity: 3,
-            _id: "K3YB0RD"
-        },
-        {
-            title: "404 Coffee Not Found",
-            severity: 2,
-            _id: "C0FF33"
-        },
-        {
-            title: "Unexpected Response",
-            severity: 1,
-            _id: "G0053"
-        }
-    ]
-    utilService.saveToStorage(STORAGE_KEY, bugs)
-}
 
 function getDefaultFilter() {
     return { txt: '', minSeverity: 0 }
