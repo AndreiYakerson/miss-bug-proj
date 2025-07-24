@@ -4,8 +4,7 @@ import { utilService } from './services/util.service.js'
 import { bugService } from './services/bug.service.js'
 
 const app = express()
-// app.get('/', (req,res) => res.send('Hello there!'))
-
+app.use(express.static('public'))
 
 
 app.get('/api/bug', (req, res) => {
