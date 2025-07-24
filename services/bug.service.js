@@ -30,5 +30,5 @@ function remove(bugId) {
 }
 
 function _saveBugs () {
-    utilService.writeJsonFile('./data/bug.json', bugs)
+   return utilService.writeJsonFile('./data/bug.json', bugs)
 }
