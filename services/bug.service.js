@@ -1,3 +1,6 @@
+const bugs = utilService.readJsonFile('./data/bug.json')
+// console.log(bugs)
+
 export const bugService = {
     query,
     getById,
