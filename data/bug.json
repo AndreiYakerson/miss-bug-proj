@@ -68,5 +68,31 @@
         "description": "Cannot log in to the application",
         "severity": 1,
         "createdAt": 1678107359454
+    },
+    {
+        "title": "fine",
+        "description": "Hello bug",
+        "_id": "z1GYp8",
+        "createdAt": 1753378053524
+    },
+    {
+        "title": "fine",
+        "description": "Hello bug",
+        "_id": "ujFPE4",
+        "createdAt": 1753378088905
+    },
+    {
+        "title": "fine",
+        "severity": "4",
+        "description": "Hello bug",
+        "_id": "kmY5b5",
+        "createdAt": 1753378116843
+    },
+    {
+        "title": "fine",
+        "severity": "4",
+        "description": "Hello bug",
+        "_id": "KHHvo4",
+        "createdAt": 1753378131038
     }
 ]
