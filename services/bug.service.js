@@ -7,7 +7,8 @@ const bugs = utilService.readJsonFile('./data/bug.json')
 export const bugService = {
     query,
     getById,
-    remove
+    remove,
+    save
 }
 
 
@@ -15,6 +16,19 @@ export const bugService = {
 
 function query() {
     return Promise.resolve(bugs)
+}
+
+function save(bugToSave) {
+    if (bugToSave._id) {
+        const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
+        bugs.splice(idx, 1, bugToSave)
+    } else {
+        bugToSave._id = utilService.makeId()
+        bugToSave.createdAt = Date.now()
+        bugs.push(bugToSave)
+    }
+    return _saveBugs()
+        .then(() => bugToSave)
 }
 
 function getById(bugId) {
@@ -29,6 +43,6 @@ function remove(bugId) {
     return _saveBugs()
 }
 
-function _saveBugs () {
-   return utilService.writeJsonFile('./data/bug.json', bugs)
+function _saveBugs() {
+    return utilService.writeJsonFile('./data/bug.json', bugs)
 }
