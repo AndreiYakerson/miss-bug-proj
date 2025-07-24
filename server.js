@@ -13,7 +13,29 @@ app.get('/api/bug', (req, res) => {
     .then(bugs => res.send(bugs))
 })
 
-// app.get('/api/bug/save', (req, res) => { })
+app.get('/api/bug/save', (req, res) => {
+    const queryParams = req.query
+    const bugToSafe = {
+        title: queryParams.title,
+        severity: queryParams.severity
+    }
+
+
+    if (queryParams._id ) {
+        const idx = bugs.findIndex(bug => bug._id === req.params.bugId)
+        bugs.splice(idx,1,bugToSafe)
+
+    } else {
+        const bugToSafe = {
+            _id: utilService.makeId(),
+            title: queryParams.title,
+            severity: queryParams.severity
+        }
+        bugs.push(bugToSafe)
+    }
+
+    res.send(bugToSafe)
+})
 
 app.get('/api/bug/:bugId', (req, res) => {
     bugService.getById(req.params.bugId)
