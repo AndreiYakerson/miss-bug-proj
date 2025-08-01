@@ -1,11 +1,14 @@
-import { log } from 'console'
+
 import express from 'express'
+import cookieParser from 'cookie-parser'
+
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './services/logger.service.js'
 
 
 const app = express()
 app.use(express.static('public'))
+app.use(cookieParser())
 
 
 app.get('/api/bug', (req, res) => {
@@ -50,6 +53,13 @@ app.get('/api/bug/:bugId/remove', (req, res) => {
             loggerService.error('Failed to remove bug', err)
             res.status(400).send('Failed to remove bug')
         })
+})
+
+
+app.get('/cookies/:bugId', (req, res) => {
+    const bugId = req.params.bugId
+    let visitedBugs = req.cookies.visitedBugs || []
+    _checkVisitedBugsLimit(bugId, visitedBugs, res)
 })
 
 

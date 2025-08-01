@@ -10,6 +10,13 @@ export function BugDetails() {
     const { bugId } = useParams()
 
     useEffect(() => {
+        bugService.getCookies(bugId)
+            .then(console.log)
+            .catch((err) => {
+                showErrorMsg('Wait a bit', err)
+                navigate('/bug')
+            })
+
         bugService.getById(bugId)
             .then(bug => setBug(bug))
             .catch(err => showErrorMsg(`Cannot load bug`, err))
