@@ -66,3 +66,20 @@ app.get('/cookies/:bugId', (req, res) => {
 
 const port = 3030
 app.listen(port, () => loggerService.info(`Server is running on http://127.0.0.1:${port}/`))
+
+
+
+function _checkVisitedBugsLimit(bugId, visitedBugs, res) {
+    if (!visitedBugs.includes(bugId) && visitedBugs.length < 3) {
+        visitedBugs.push(bugId)
+        console.log(visitedBugs);
+
+        res.cookie('visitedBugs', visitedBugs, { maxAge: 1000 * 7 })
+        return res.send(visitedBugs)
+    }
+
+    if (visitedBugs.length > 2 && !visitedBugs.includes(bugId)) {
+        loggerService.error('User limit, 3 bugs reached')
+        return res.status(401).send('Wait for a bit')
+    }
+}
