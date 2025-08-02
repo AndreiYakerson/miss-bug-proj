@@ -36,7 +36,7 @@ function getById(bugId) {
 }
 
 function remove(bugId) {
-    return axios.get(`${URL}/${bugId}`)
+    return axios.delete(`${URL}/${bugId}`)
 }
 
 function save(bug) {

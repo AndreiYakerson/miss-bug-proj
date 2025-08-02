@@ -46,7 +46,7 @@ app.get('/api/bug/:bugId', (req, res) => {
         })
 })
 
-app.get('/api/bug/:bugId/remove', (req, res) => {
+app.delete('/api/bug/:bugId', (req, res) => {
     bugService.remove(req.params.bugId)
         .then(() => res.send(`Bug with Id ${req.params.bugId} removed`))
         .catch(err => {
