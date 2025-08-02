@@ -14,12 +14,12 @@ export const bugService = {
 
 function query(filterBy) {
     return axios.get(URL, { params: filterBy })
-    .then(res => res.data)
+        .then(res => res.data)
 }
 
 function getById(bugId) {
     return axios.get(`${URL}/${bugId}`)
-    .then(res => res.data)
+        .then(res => res.data)
 }
 
 function remove(bugId) {
@@ -27,11 +27,13 @@ function remove(bugId) {
 }
 
 function save(bug) {
-    let queryParams = `/save?title=${bug.title}&severity=${bug.severity}&description=${bug.description}`
-    if (bug._id) queryParams += `&id=${bug._id}`
-
-    return axios.get(`${URL}${queryParams}`)
-    .then(res => res.data)
+    if (bug._id) {
+        return axios.put(URL, bug)
+            .then(res => res.data)
+    } else {
+        return axios.post(URL, bug)
+            .then(res => res.data)
+    }
 }
 
 
@@ -41,5 +43,5 @@ function getDefaultFilter() {
 
 function getCookies(bugId) {
     return axios.get('/cookies/' + bugId)
-    .then(res => res.data)
+        .then(res => res.data)
 }

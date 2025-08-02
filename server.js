@@ -27,13 +27,14 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-app.get('/api/bug/save', (req, res) => {
-    const queryParams = req.query
-
+app.post('/api/bug', (req, res) => {
+    const bug = req.body
+    // console.log(bug);
+    
     const bugToSafe = {
-        title: queryParams.title,
-        severity: queryParams.severity,
-        description: queryParams.description,
+        title: bug.title,
+        severity: bug.severity,
+        description: bug.description,
     }
 
     bugService.save(bugToSafe)
@@ -43,6 +44,25 @@ app.get('/api/bug/save', (req, res) => {
             res.status(400).send('Failed to save bug')
         })
 })
+
+app.put('/api/bug', (req, res) => {
+    const bug = req.body
+    // console.log(bug);
+    
+    const bugToSafe = {
+        _id: bug._id,
+        title: bug.title,
+        severity: bug.severity,
+        description: bug.description,
+    }
+
+    bugService.save(bugToSafe)
+        .then(bug => res.send(bug))
+        .catch(err => {
+            loggerService.error('Failed to save bug', err)
+            res.status(400).send('Failed to save bug')
+        })
+})  
 
 app.get('/api/bug/:bugId', (req, res) => {
     bugService.getById(req.params.bugId)

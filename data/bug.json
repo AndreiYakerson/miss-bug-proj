@@ -9,23 +9,20 @@
     {
         "_id": "ghi789",
         "title": "Button click not responsive",
-        "description": "Submit button does not respond",
-        "severity": 4,
-        "createdAt": 1613107359454
+        "severity": 1,
+        "description": "Submit button does not respond"
     },
     {
         "_id": "jkl012",
         "title": "Page crashes on refresh",
-        "description": "Refreshing the page causes a crash",
-        "severity": 5,
-        "createdAt": 1645107359454
+        "severity": 2,
+        "description": "Refreshing the page causes a crash"
     },
     {
         "_id": "mno345",
         "title": "Form validation issue",
-        "description": "Validation error not displayed",
-        "severity": 3,
-        "createdAt": 1602107359454
+        "severity": 2,
+        "description": "Validation error not displayed"
     },
     {
         "_id": "pqr678",
@@ -164,5 +161,47 @@
         "description": "problem when clicking Save",
         "_id": "B02aUh",
         "createdAt": 1753387552862
+    },
+    {
+        "title": "Bug 1754163452692",
+        "severity": 3,
+        "description": "Bug description",
+        "_id": "nLkUbi",
+        "createdAt": 1754163457805
+    },
+    {
+        "title": "Cannot save a new car",
+        "severity": 3,
+        "description": "problem when clicking Save",
+        "_id": "GQmH6G",
+        "createdAt": 1754163466388
+    },
+    {
+        "title": "Page crashes on refresh",
+        "severity": 4,
+        "description": "Refreshing the page causes a crash",
+        "_id": "jmdBCd",
+        "createdAt": 1754163473828
+    },
+    {
+        "title": "Page crashes on refresh",
+        "severity": 1,
+        "description": "Refreshing the page causes a crash",
+        "_id": "n4TV5g",
+        "createdAt": 1754163479349
+    },
+    {
+        "title": "Page crashes on refresh",
+        "severity": 1,
+        "description": "Refreshing the page causes a crash",
+        "_id": "wi7DrW",
+        "createdAt": 1754163488528
+    },
+    {
+        "title": "Button click not responsive",
+        "severity": 1,
+        "description": "Submit button does not respond",
+        "_id": "qppfT9",
+        "createdAt": 1754164132885
     }
 ]
