@@ -9,10 +9,17 @@ import { loggerService } from './services/logger.service.js'
 const app = express()
 app.use(express.static('public'))
 app.use(cookieParser())
+app.use(express.json())
 
 
 app.get('/api/bug', (req, res) => {
-    bugService.query()
+    const filterBy = {
+        txt: req.query.txt || '',
+        minSeverity: +req.query.minSeverity || 0,
+        pageIdx: +req.query.pageIdx || 0,
+    }
+
+    bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
             loggerService.error('Failed to get bugs', err)
