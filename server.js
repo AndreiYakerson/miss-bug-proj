@@ -99,7 +99,7 @@ app.listen(port, () => loggerService.info(`Server is running on http://127.0.0.1
 function _checkVisitedBugsLimit(bugId, visitedBugs, res) {
     if (!visitedBugs.includes(bugId) && visitedBugs.length < 3) {
         visitedBugs.push(bugId)
-        console.log(visitedBugs);
+        // console.log(visitedBugs);
 
         res.cookie('visitedBugs', visitedBugs, { maxAge: 1000 * 7 })
         return res.send(visitedBugs)

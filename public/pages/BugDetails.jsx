@@ -2,7 +2,7 @@ const { useState, useEffect } = React
 const { Link, useParams, useNavigate } = ReactRouterDOM
 
 import { bugService } from '../services/bug.service.server.js'
-import { showErrorMsg} from '../services/event-bus.service.js'
+import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function BugDetails() {
 
@@ -13,7 +13,6 @@ export function BugDetails() {
 
     useEffect(() => {
         bugService.getCookies(bugId)
-            .then(console.log)
             .catch((err) => {
                 showErrorMsg('Wait a bit', err)
                 navigate('/bug')

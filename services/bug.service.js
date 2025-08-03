@@ -15,7 +15,7 @@ export const bugService = {
 
 function query(filterBy = {}) {
     let bugsToDisplay = bugs
-    console.log(filterBy);
+
     
 
     if (filterBy.txt) {
