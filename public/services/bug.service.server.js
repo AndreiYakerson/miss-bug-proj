@@ -38,7 +38,7 @@ function save(bug) {
 
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0 }
+    return { txt: '', minSeverity: 0}
 }
 
 function getCookies(bugId) {

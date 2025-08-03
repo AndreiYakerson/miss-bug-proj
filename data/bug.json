@@ -203,5 +203,18 @@
         "description": "Submit button does not respond",
         "_id": "qppfT9",
         "createdAt": 1754164132885
+    },
+    {
+        "_id": "YdTEI5",
+        "title": "Bug 1754164409270",
+        "severity": 2,
+        "description": "Bug description"
+    },
+    {
+        "title": "Hello my little bug",
+        "severity": 1,
+        "description": "Little bug",
+        "_id": "hVbDKP",
+        "createdAt": 1754214919646
     }
 ]

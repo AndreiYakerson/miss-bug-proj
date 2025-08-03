@@ -59,7 +59,28 @@ export function BugIndex() {
     }
 
     function onSetFilterBy(filterBy) {
-        setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
+        setFilterBy(prevFilter => {
+            if (prevFilter.pageIdx !== undefined) prevFilter.pageIdx = 0
+           return { ...prevFilter, ...filterBy }
+        })
+    }
+
+    function onTogglePages() {
+        setFilterBy(prevFilter => {
+            return {
+                ...prevFilter, 
+                pageIdx: prevFilter.pageIdx === undefined ? 0 : prevFilter.pageIdx = undefined
+            }
+        })
+    }
+
+    function onChangePage(diff) {
+        if (filterBy.pageIdx === undefined) return 
+        setFilterBy(prevFilter => {
+            let nextPageIdx = prevFilter.pageIdx + diff
+            if (nextPageIdx < 0) nextPageIdx = 0
+            return { ...prevFilter, pageIdx: nextPageIdx }
+        })
     }
 
     return <section className="bug-index main-content">
@@ -69,6 +90,12 @@ export function BugIndex() {
             <h3>Bug List</h3>
             <button onClick={onAddBug}>Add Bug</button>
         </header>
+            <section>
+                <button onClick={onTogglePages}>Toggle pages</button>
+                <button onClick={() => onChangePage(-1)}>-</button>
+                <span>{filterBy.pageIdx + 1 || 'No pages'}</span>
+                <button onClick={() => onChangePage(1)}>+</button>
+            </section>
         
         <BugList 
             bugs={bugs} 
