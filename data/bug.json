@@ -7,24 +7,6 @@
         "createdAt": 1632107359454
     },
     {
-        "_id": "ghi789",
-        "title": "Button click not responsive",
-        "severity": 1,
-        "description": "Submit button does not respond"
-    },
-    {
-        "_id": "jkl012",
-        "title": "Page crashes on refresh",
-        "severity": 2,
-        "description": "Refreshing the page causes a crash"
-    },
-    {
-        "_id": "mno345",
-        "title": "Form validation issue",
-        "severity": 2,
-        "description": "Validation error not displayed"
-    },
-    {
         "_id": "pqr678",
         "title": "Dropdown menu not working",
         "description": "Cannot select options from dropdown",

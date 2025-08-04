@@ -1,4 +1,4 @@
-const { useState, useEffect } = React
+const { useState, useEffect, Fragment } = React
 
 import { bugService } from '../services/bug.service.server.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
@@ -61,21 +61,21 @@ export function BugIndex() {
     function onSetFilterBy(filterBy) {
         setFilterBy(prevFilter => {
             if (prevFilter.pageIdx !== undefined) prevFilter.pageIdx = 0
-           return { ...prevFilter, ...filterBy }
+            return { ...prevFilter, ...filterBy }
         })
     }
 
     function onTogglePages() {
         setFilterBy(prevFilter => {
             return {
-                ...prevFilter, 
+                ...prevFilter,
                 pageIdx: prevFilter.pageIdx === undefined ? 0 : prevFilter.pageIdx = undefined
             }
         })
     }
 
     function onChangePage(diff) {
-        if (filterBy.pageIdx === undefined) return 
+        if (filterBy.pageIdx === undefined) return
         setFilterBy(prevFilter => {
             let nextPageIdx = prevFilter.pageIdx + diff
             if (nextPageIdx < 0) nextPageIdx = 0
@@ -84,22 +84,29 @@ export function BugIndex() {
     }
 
     return <section className="bug-index main-content">
-        
+
         <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
         <header>
             <h3>Bug List</h3>
             <button onClick={onAddBug}>Add Bug</button>
         </header>
-            <section>
-                <button onClick={onTogglePages}>Toggle pages</button>
-                <button onClick={() => onChangePage(-1)}>-</button>
-                <span>{filterBy.pageIdx + 1 || 'No pages'}</span>
-                <button onClick={() => onChangePage(1)}>+</button>
-            </section>
-        
-        <BugList 
-            bugs={bugs} 
-            onRemoveBug={onRemoveBug} 
+
+        <section>
+            <button onClick={onTogglePages}>Toggle pages</button>
+
+            {
+                filterBy.pageIdx !== undefined &&
+                <Fragment>
+                    <button onClick={() => onChangePage(-1)}>-</button>
+                    <span>{filterBy.pageIdx + 1}</span>
+                    <button onClick={() => onChangePage(1)}>+</button>
+                </Fragment>
+            }
+        </section>
+
+        <BugList
+            bugs={bugs}
+            onRemoveBug={onRemoveBug}
             onEditBug={onEditBug} />
     </section>
 }
