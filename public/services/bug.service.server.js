@@ -27,18 +27,17 @@ function remove(bugId) {
 }
 
 function save(bug) {
-    if (bug._id) {
-        return axios.put(URL, bug)
-            .then(res => res.data)
-    } else {
-        return axios.post(URL, bug)
-            .then(res => res.data)
-    }
+    if (bug._id) return axios.put(URL, bug).then(res => res.data)
+    else return axios.post(URL, bug).then(res => res.data)
 }
 
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0}
+    return {
+        txt: '',
+        minSeverity: 0,
+        sortBy: 'createdAt',
+    }
 }
 
 function getCookies(bugId) {

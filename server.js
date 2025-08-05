@@ -13,10 +13,14 @@ app.use(express.json())
 
 
 app.get('/api/bug', (req, res) => {
+
     const filterBy = {
         txt: req.query.txt || '',
         minSeverity: +req.query.minSeverity || 0,
         pageIdx: req.query.pageIdx || undefined,
+
+        sortBy: req.query.sortBy || '',
+        sortDir: req.query.sortDir || 1,
     }
 
     bugService.query(filterBy)
@@ -30,7 +34,7 @@ app.get('/api/bug', (req, res) => {
 app.post('/api/bug', (req, res) => {
     const bug = req.body
     // console.log(bug);
-    
+
     const bugToSafe = {
         title: bug.title,
         severity: bug.severity,
@@ -48,7 +52,7 @@ app.post('/api/bug', (req, res) => {
 app.put('/api/bug', (req, res) => {
     const bug = req.body
     // console.log(bug);
-    
+
     const bugToSafe = {
         _id: bug._id,
         title: bug.title,
@@ -62,7 +66,7 @@ app.put('/api/bug', (req, res) => {
             loggerService.error('Failed to save bug', err)
             res.status(400).send('Failed to save bug')
         })
-})  
+})
 
 app.get('/api/bug/:bugId', (req, res) => {
     bugService.getById(req.params.bugId)

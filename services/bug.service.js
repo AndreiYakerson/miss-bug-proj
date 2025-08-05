@@ -15,8 +15,8 @@ export const bugService = {
 
 function query(filterBy = {}) {
     let bugsToDisplay = bugs
+    // console.log('This', filterBy);
 
-    
 
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
@@ -31,6 +31,19 @@ function query(filterBy = {}) {
         const startIdx = filterBy.pageIdx * PAGE_SIZE
         bugsToDisplay = bugsToDisplay.slice(startIdx, startIdx + PAGE_SIZE)
     }
+
+
+    const sortBy = filterBy.sortBy
+    const sortDir = filterBy.sortDir
+    // console.log(sortDir);
+    
+    bugsToDisplay = bugsToDisplay.sort((bug1, bug2) => {
+        if (sortBy === 'title') return (bug1.title.localeCompare(bug2.title)) * sortDir
+        if (sortBy === 'severity') return (bug1.severity - bug2.severity) * sortDir
+        if (sortBy === 'createdAt') return (bug1.createdAt - bug2.createdAt) * sortDir
+        return 0
+    })
+
 
     return Promise.resolve(bugsToDisplay)
 }

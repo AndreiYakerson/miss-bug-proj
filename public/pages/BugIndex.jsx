@@ -13,6 +13,7 @@ export function BugIndex() {
     useEffect(loadBugs, [filterBy])
 
     function loadBugs() {
+        
         bugService.query(filterBy)
             .then(setBugs)
             .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`))
