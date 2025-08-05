@@ -1,6 +1,7 @@
 
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import path from 'path'
 
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './services/logger.service.js'
@@ -91,6 +92,10 @@ app.get('/cookies/:bugId', (req, res) => {
     const bugId = req.params.bugId
     let visitedBugs = req.cookies.visitedBugs || []
     _checkVisitedBugsLimit(bugId, visitedBugs, res)
+})
+
+app.get('/*all', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
 })
 
 
