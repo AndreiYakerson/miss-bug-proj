@@ -20,7 +20,11 @@ function query(filterBy = {}) {
 
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
-        bugsToDisplay = bugsToDisplay.filter(bug => regExp.test(bug.title))
+
+        bugsToDisplay = bugsToDisplay.filter(bug => {
+            return regExp.test(bug.title) 
+            || bug.labels.filter(label => regExp.test(label)).length
+        })
     }
 
     if (filterBy.minSeverity) {
