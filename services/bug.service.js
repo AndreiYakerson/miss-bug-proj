@@ -9,7 +9,8 @@ export const bugService = {
     query,
     getById,
     remove,
-    save
+    save,
+    checkVisitedBugsLimit
 }
 
 
@@ -70,6 +71,21 @@ function getById(bugId) {
     return Promise.resolve(bug)
 }
 
+function checkVisitedBugsLimit(bugId, visitedBugs, res) {
+    if (!visitedBugs.includes(bugId) && visitedBugs.length < 3) {
+        visitedBugs.push(bugId)
+        // console.log(visitedBugs);
+
+        res.cookie('visitedBugs', visitedBugs, { maxAge: 1000 * 7 })
+        return res.send(visitedBugs)
+    }
+
+    if (visitedBugs.length > 2 && !visitedBugs.includes(bugId)) {
+        loggerService.error('User limit, 3 bugs reached')
+        return res.status(401).send('Wait for a bit')
+    }
+}
+
 function remove(bugId) {
     const idx = bugs.findIndex(bug => bug._id === bugId)
     bugs.splice(idx, 1)
@@ -80,3 +96,4 @@ function remove(bugId) {
 function _saveBugs() {
     return utilService.writeJsonFile('./data/bug.json', bugs)
 }
+

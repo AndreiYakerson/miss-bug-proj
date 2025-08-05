@@ -91,7 +91,7 @@ app.delete('/api/bug/:bugId', (req, res) => {
 app.get('/cookies/:bugId', (req, res) => {
     const bugId = req.params.bugId
     let visitedBugs = req.cookies.visitedBugs || []
-    _checkVisitedBugsLimit(bugId, visitedBugs, res)
+    bugService.checkVisitedBugsLimit(bugId, visitedBugs, res)
 })
 
 app.get('/*all', (req, res) => {
@@ -105,17 +105,3 @@ app.listen(port, () => loggerService.info(`Server is running on http://127.0.0.1
 
 
 
-function _checkVisitedBugsLimit(bugId, visitedBugs, res) {
-    if (!visitedBugs.includes(bugId) && visitedBugs.length < 3) {
-        visitedBugs.push(bugId)
-        // console.log(visitedBugs);
-
-        res.cookie('visitedBugs', visitedBugs, { maxAge: 1000 * 7 })
-        return res.send(visitedBugs)
-    }
-
-    if (visitedBugs.length > 2 && !visitedBugs.includes(bugId)) {
-        loggerService.error('User limit, 3 bugs reached')
-        return res.status(401).send('Wait for a bit')
-    }
-}
