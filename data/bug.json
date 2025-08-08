@@ -1,5 +1,26 @@
 [
     {
+        "_id": "yzb567",
+        "title": "API timeout error",
+        "description": "API request times out frequently",
+        "severity": 5,
+        "createdAt": 1589107359454,
+        "labels": [
+            "need-CR",
+            "dev-branch"
+        ]
+    },
+    {
+        "_id": "stu901",
+        "title": "Search functionality broken",
+        "description": "Search results not displayed",
+        "severity": 4,
+        "createdAt": 1598107359454,
+        "labels": [
+            "critical"
+        ]
+    },
+    {
         "_id": "abc123",
         "title": "Cannot save a new car",
         "description": "problem when clicking Save",
@@ -23,16 +44,6 @@
         ]
     },
     {
-        "_id": "stu901",
-        "title": "Search functionality broken",
-        "description": "Search results not displayed",
-        "severity": 4,
-        "createdAt": 1598107359454,
-        "labels": [
-            "critical"
-        ]
-    },
-    {
         "_id": "vwx234",
         "title": "Image upload fails",
         "description": "Error when uploading images",
@@ -40,17 +51,6 @@
         "createdAt": 1667107359454,
         "labels": [
             "critical",
-            "need-CR",
-            "dev-branch"
-        ]
-    },
-    {
-        "_id": "yzb567",
-        "title": "API timeout error",
-        "description": "API request times out frequently",
-        "severity": 5,
-        "createdAt": 1589107359454,
-        "labels": [
             "need-CR",
             "dev-branch"
         ]
@@ -140,17 +140,6 @@
         ]
     },
     {
-        "title": "Bug 1753386697730",
-        "severity": "3",
-        "description": "undefined",
-        "_id": "3n72Xv",
-        "createdAt": 1753386699827,
-        "labels": [
-            "critical",
-            "need-CR"
-        ]
-    },
-    {
         "title": "Button click not responsive",
         "severity": "4",
         "description": "Submit button does not respond",
@@ -207,6 +196,29 @@
         ]
     },
     {
+        "title": "Bug 1754163452692",
+        "severity": 3,
+        "description": "Bug description",
+        "_id": "nLkUbi",
+        "createdAt": 1754163457805,
+        "labels": [
+            "critical",
+            "need-CR",
+            "dev-branch"
+        ]
+    },
+    {
+        "_id": "YdTEI5",
+        "title": "Bug 1754164409270",
+        "severity": 2,
+        "description": "Bug description",
+        "labels": [
+            "critical",
+            "need-CR",
+            "dev-branch"
+        ]
+    },
+    {
         "title": "Hello",
         "severity": "5",
         "description": "My bad",
@@ -226,18 +238,6 @@
         "createdAt": 1753387552862,
         "labels": [
             "need-CR"
-        ]
-    },
-    {
-        "title": "Bug 1754163452692",
-        "severity": 3,
-        "description": "Bug description",
-        "_id": "nLkUbi",
-        "createdAt": 1754163457805,
-        "labels": [
-            "critical",
-            "need-CR",
-            "dev-branch"
         ]
     },
     {
@@ -295,17 +295,6 @@
         ]
     },
     {
-        "_id": "YdTEI5",
-        "title": "Bug 1754164409270",
-        "severity": 2,
-        "description": "Bug description",
-        "labels": [
-            "critical",
-            "need-CR",
-            "dev-branch"
-        ]
-    },
-    {
         "title": "Hello my little bug",
         "severity": 1,
         "description": "Little bug",
@@ -314,5 +303,15 @@
         "labels": [
             "critical"
         ]
+    },
+    {
+        "title": "Bug 1754671117041",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "_id": "q1eUm5",
+        "createdAt": 1754671121852
     }
 ]

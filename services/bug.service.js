@@ -3,7 +3,7 @@ import { utilService } from "./util.service.js"
 
 const PAGE_SIZE = 6
 const bugs = utilService.readJsonFile('./data/bug.json')
-// console.log(bugs)
+console.log(bugs)
 
 export const bugService = {
     query,
@@ -16,12 +16,10 @@ export const bugService = {
 
 function query(filterBy = {}) {
     let bugsToDisplay = bugs
-    // console.log('This', filterBy);
-
 
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
-
+        
         bugsToDisplay = bugsToDisplay.filter(bug => {
             return regExp.test(bug.title) 
             || bug.labels.filter(label => regExp.test(label)).length
@@ -54,6 +52,8 @@ function query(filterBy = {}) {
 }
 
 function save(bugToSave) {
+    console.log('bug to save: ', bugToSave);
+    
     if (bugToSave._id) {
         const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
         bugs.splice(idx, 1, bugToSave)

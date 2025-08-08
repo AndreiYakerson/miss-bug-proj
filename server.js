@@ -34,12 +34,13 @@ app.get('/api/bug', (req, res) => {
 
 app.post('/api/bug', (req, res) => {
     const bug = req.body
-    // console.log(bug);
+    console.log(bug);
 
     const bugToSafe = {
         title: bug.title,
         severity: bug.severity,
         description: bug.description,
+        labels: bug.labels
     }
 
     bugService.save(bugToSafe)
