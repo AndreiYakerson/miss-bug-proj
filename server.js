@@ -97,6 +97,29 @@ app.get('/cookies/:bugId', (req, res) => {
     bugService.checkVisitedBugsLimit(bugId, visitedBugs, res)
 })
 
+// User API
+app.get('/api/user', (req, res) => {
+    userService.query()
+        .then(users => res.send(users))
+
+})
+
+app.get('/api/user/:userId', (req, res) => {
+    const { userId } = req.params
+
+    userService.getById(userId)
+        .then(user => res.send(user))
+        .catch(err => {
+            loggerService.error('Cannot load user', err)
+            res.status(400).send('Cannot load user')
+        })
+        .catch(err => {
+            loggerService.error('Cannot load users', err)
+            res.status(400).send('Cannot load users')
+        })
+})
+
+
 app.get('/*all', (req, res) => {
     res.sendFile(path.resolve('public/index.html'))
 })
