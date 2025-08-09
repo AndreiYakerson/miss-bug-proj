@@ -3,18 +3,14 @@
     "username": "Anna",
     "password": "123",
     "fullname": "Anna Yakerson",
-    "_id": "Bc7XrZ"
-  },
-  {
-    "username": "abc",
-    "password": "123",
-    "fullname": "abc bca",
-    "_id": "hY2Uqy"
+    "_id": "Bc7XrZ",
+    "isAdmin": false
   },
   {
     "username": "ckem92",
     "password": "ckem92",
     "fullname": "Andrei Yakerson",
-    "_id": "9ns92F"
+    "_id": "9ns92F",
+    "isAdmin": true
   }
 ]
