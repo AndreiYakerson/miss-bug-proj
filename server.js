@@ -5,6 +5,8 @@ import path from 'path'
 
 import { bugService } from './services/bug.service.js'
 import { loggerService } from './services/logger.service.js'
+import { userService } from './services/user.service.js'
+import { authService } from './services/auth.service.js'
 
 
 const app = express()
