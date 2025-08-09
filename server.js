@@ -36,7 +36,7 @@ app.get('/api/bug', (req, res) => {
 
 app.post('/api/bug', (req, res) => {
     const bug = req.body
-    console.log(bug);
+
 
     const bugToSafe = {
         title: bug.title,
@@ -89,7 +89,6 @@ app.delete('/api/bug/:bugId', (req, res) => {
             res.status(400).send('Failed to remove bug')
         })
 })
-
 
 app.get('/cookies/:bugId', (req, res) => {
     const bugId = req.params.bugId
