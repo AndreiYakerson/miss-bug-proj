@@ -9,6 +9,7 @@ import { Home } from './pages/Home.jsx'
 import { BugIndex } from './pages/BugIndex.jsx'
 import { BugDetails } from './pages/BugDetails.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
+import { LoginSignup } from './pages/LoginSignup.jsx'
 import { authService } from './services/auth.service.js'
 
 export function App() {
@@ -23,6 +24,7 @@ export function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/bug" element={<BugIndex />} />
+                    <Route path="/auth" element={<LoginSignup setLoggedInUser={setLoggedInUser} />} />
                     <Route path="/bug/:bugId" element={<BugDetails />} />
                     <Route path="/about" element={<AboutUs />} />
                 </Routes>
