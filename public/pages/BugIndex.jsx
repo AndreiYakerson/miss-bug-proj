@@ -1,12 +1,14 @@
 const { useState, useEffect, Fragment } = React
 
 import { bugService } from '../services/bug.service.server.js'
+import { authService } from '../services/auth.service.js'
+
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 import { BugFilter } from '../cmps/BugFilter.jsx'
 import { BugList } from '../cmps/BugList.jsx'
 
-export function BugIndex() {
+export function BugIndex({ loggedInUser }) {
     const [bugs, setBugs] = useState(null)
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
 
@@ -34,11 +36,14 @@ export function BugIndex() {
             title: prompt('Bug title?', 'Bug ' + Date.now()),
             description: prompt('Bug description?', 'Bug description'),
             severity: +prompt('Bug severity?', 3),
-            labels: [prompt('Add Label', 'Critical')]
+            labels: [prompt('Add Label', 'Critical')],
+            creator: {
+                _id: loggedInUser._id,
+                fullname: loggedInUser.fullname
+            }
         }
 
-        console.log(bug);
-        
+
 
         bugService.save(bug)
             .then(savedBug => {
@@ -112,6 +117,7 @@ export function BugIndex() {
         <BugList
             bugs={bugs}
             onRemoveBug={onRemoveBug}
-            onEditBug={onEditBug} />
+            onEditBug={onEditBug}
+            loggedInUser={loggedInUser} />
     </section>
 }

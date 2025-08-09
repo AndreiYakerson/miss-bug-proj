@@ -42,7 +42,11 @@ app.post('/api/bug', (req, res) => {
         title: bug.title,
         severity: bug.severity,
         description: bug.description,
-        labels: bug.labels
+        labels: bug.labels,
+        creator: {
+            _id: bug.creator._id,
+            fullname: bug.creator.fullname
+        }
     }
 
     bugService.save(bugToSafe)
@@ -62,6 +66,10 @@ app.put('/api/bug', (req, res) => {
         title: bug.title,
         severity: bug.severity,
         description: bug.description,
+        creator: {
+            _id: bug.creator._id,
+            fullname: bug.creator.fullname
+        }
     }
 
     bugService.save(bugToSafe)
