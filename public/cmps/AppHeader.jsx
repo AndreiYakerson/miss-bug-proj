@@ -1,6 +1,8 @@
-const { NavLink } = ReactRouterDOM
+const { NavLink, Link } = ReactRouterDOM
+const { useNavigate } = ReactRouter
 
-export function AppHeader() {
+
+    const navigate = useNavigate()
     return <header className="app-header main-content single-row">
         <h1>Miss Bug</h1>
         <nav>
