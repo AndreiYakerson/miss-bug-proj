@@ -1,5 +1,6 @@
 const Router = ReactRouterDOM.BrowserRouter
 const { Route, Routes } = ReactRouterDOM
+const {useState} = React
 
 import { UserMsg } from './cmps/UserMsg.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
@@ -10,10 +11,13 @@ import { BugDetails } from './pages/BugDetails.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 
 export function App() {
+
+    const [loggedInUser, setLoggedInUser] = useState(authService.getLoggedInUser())
+
     return <Router>
         <div className="app-wrapper">
             <UserMsg />
-            <AppHeader />
+            <AppHeader loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />
             <main className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
