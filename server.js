@@ -21,6 +21,7 @@ app.get('/api/bug', (req, res) => {
         txt: req.query.txt || '',
         minSeverity: +req.query.minSeverity || 0,
         pageIdx: req.query.pageIdx || undefined,
+        userId: req.query.userId || '',
 
         sortBy: req.query.sortBy || '',
         sortDir: req.query.sortDir || 1,
@@ -74,7 +75,7 @@ app.put('/api/bug', (req, res) => {
         }
     }
 
-    bugService.save(bugToSafe)
+    bugService.save(bugToSafe, loggedInUser)
         .then(bug => res.send(bug))
         .catch(err => {
             loggerService.error('Failed to save bug', err)
@@ -92,9 +93,9 @@ app.get('/api/bug/:bugId', (req, res) => {
 })
 
 app.delete('/api/bug/:bugId', (req, res) => {
+    console.log('yes')
     const loggedInUser = authService.validateToken(req.cookies.loginToken)
     if (!loggedInUser) return res.status(401).send('Cannot delete bug!')
-
 
     bugService.remove(req.params.bugId, loggedInUser)
         .then(() => res.send(`Bug with Id ${req.params.bugId} removed`))
