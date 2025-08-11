@@ -36,7 +36,8 @@ export function BugDetails() {
             </div>
         }
         <hr />
-        <Link to="/bug">Back to List</Link>
+        {/* <Link to="/bug">Back to List</Link> */}
+        <button onClick={() => navigate(-1)}>Back</button>
     </div>
 
 }
