@@ -28,7 +28,7 @@ export function App() {
                     <Route path="/auth" element={<LoginSignup setLoggedInUser={setLoggedInUser} />} />
                     <Route path="/bug/:bugId" element={<BugDetails />} />
                     <Route path="/about" element={<AboutUs />} />
-                    <Route path="/user/:userId" element={<UserDetails />} />
+                    <Route path="/user/:userId" element={<UserDetails loggedInUser={loggedInUser} />} />
                 </Routes>
             </main>
             <AppFooter />
