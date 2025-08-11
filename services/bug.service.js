@@ -15,7 +15,13 @@ export const bugService = {
 
 
 function query(filterBy = {}) {
+    console.log(filterBy);
+    
     let bugsToDisplay = bugs
+
+    if (filterBy.userId) {
+        bugsToDisplay = bugsToDisplay.filter(bug => filterBy.userId === bug.creator._id)
+    }
 
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')
@@ -51,13 +57,13 @@ function query(filterBy = {}) {
     return Promise.resolve(bugsToDisplay)
 }
 
-function save(bugToSave) {
+function save(bugToSave, loggedInUser) {
     console.log('bug to save: ', bugToSave);
     
     if (bugToSave._id) {
         const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
         if (idx === -1) return Promise.reject('Bug not found')
-    if (!isAuthorized(bugs[idx],loggedInUser)) {
+    if (!_isAuthorized(bugs[idx],loggedInUser)) {
         return Promise.reject('Not authorized to delete this bug')
     }
         bugs.splice(idx, 1, bugToSave)
@@ -93,12 +99,16 @@ function checkVisitedBugsLimit(bugId, visitedBugs, res) {
 function remove(bugId, loggedInUser) {
     const idx = bugs.findIndex(bug => bug._id === bugId)
     if (idx === -1) return Promise.reject('Bug not found')
-    if (!isAuthorized(bugs[idx],loggedInUser)) {
+    if (!_isAuthorized(bugs[idx],loggedInUser)) {
         return Promise.reject('Not authorized to delete this bug')
     }
     bugs.splice(idx, 1)
 
     return _saveBugs()
+}
+
+function _isAuthorized(bug, loggedInUser) {
+    return bug.creator._id === loggedInUser._id || loggedInUser.isAdmin
 }
 
 function _saveBugs() {
