@@ -35,9 +35,10 @@ app.get('/api/bug', (req, res) => {
 })
 
 app.post('/api/bug', (req, res) => {
+    const loggedInUser = authService.validateToken(req.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot delete bug!')
+
     const bug = req.body
-
-
     const bugToSafe = {
         title: bug.title,
         severity: bug.severity,
@@ -58,9 +59,10 @@ app.post('/api/bug', (req, res) => {
 })
 
 app.put('/api/bug', (req, res) => {
-    const bug = req.body
-    // console.log(bug);
+    const loggedInUser = authService.validateToken(req.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot delete bug!')
 
+    const bug = req.body
     const bugToSafe = {
         _id: bug._id,
         title: bug.title,
@@ -90,7 +92,11 @@ app.get('/api/bug/:bugId', (req, res) => {
 })
 
 app.delete('/api/bug/:bugId', (req, res) => {
-    bugService.remove(req.params.bugId)
+    const loggedInUser = authService.validateToken(req.cookies.loginToken)
+    if (!loggedInUser) return res.status(401).send('Cannot delete bug!')
+
+
+    bugService.remove(req.params.bugId, loggedInUser)
         .then(() => res.send(`Bug with Id ${req.params.bugId} removed`))
         .catch(err => {
             loggerService.error('Failed to remove bug', err)

@@ -56,6 +56,10 @@ function save(bugToSave) {
     
     if (bugToSave._id) {
         const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
+        if (idx === -1) return Promise.reject('Bug not found')
+    if (!isAuthorized(bugs[idx],loggedInUser)) {
+        return Promise.reject('Not authorized to delete this bug')
+    }
         bugs.splice(idx, 1, bugToSave)
     } else {
         bugToSave._id = utilService.makeId()
@@ -86,8 +90,12 @@ function checkVisitedBugsLimit(bugId, visitedBugs, res) {
     }
 }
 
-function remove(bugId) {
+function remove(bugId, loggedInUser) {
     const idx = bugs.findIndex(bug => bug._id === bugId)
+    if (idx === -1) return Promise.reject('Bug not found')
+    if (!isAuthorized(bugs[idx],loggedInUser)) {
+        return Promise.reject('Not authorized to delete this bug')
+    }
     bugs.splice(idx, 1)
 
     return _saveBugs()
