@@ -1,34 +1,5 @@
 [
     {
-        "_id": "yzb567",
-        "title": "API timeout error",
-        "description": "API request times out frequently",
-        "severity": 5,
-        "createdAt": 1589107359454,
-        "labels": [
-            "need-CR",
-            "dev-branch"
-        ],
-        "creator": {
-            "_id": "9ns92F",
-            "fullname": "Andrei Yakerson"
-        }
-    },
-    {
-        "title": "Bug 1754752869159",
-        "severity": 3,
-        "description": "Bug description",
-        "labels": [
-            "Critical"
-        ],
-        "creator": {
-            "_id": "Bc7XrZ",
-            "fullname": "Anna Yakerson"
-        },
-        "_id": "ZCKutC",
-        "createdAt": 1754752870770
-    },
-    {
         "title": "Bug 1754752874239",
         "severity": 3,
         "description": "Bug description",
@@ -43,7 +14,119 @@
         "createdAt": 1754752875504
     },
     {
-        "title": "Bug 1754753049202",
+        "title": "Bug 1754938329458",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "Xt0C48",
+        "createdAt": 1754938330655
+    },
+    {
+        "title": "Bug 1754938360374",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "Le7Uxa",
+        "createdAt": 1754938362090
+    },
+    {
+        "title": "Bug 1754938362231",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "PknY55",
+        "createdAt": 1754938363268
+    },
+    {
+        "title": "Bug 1754938364352",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "lAdEwF",
+        "createdAt": 1754938365621
+    },
+    {
+        "title": "Bug 1754938365753",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "0LJADP",
+        "createdAt": 1754938366469
+    },
+    {
+        "title": "Bug 1754938366745",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "EOHEUQ",
+        "createdAt": 1754938367417
+    },
+    {
+        "title": "Bug 1754938367691",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "3SCGbr",
+        "createdAt": 1754938368399
+    },
+    {
+        "title": "Bug 1754938368654",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "9ns92F",
+            "fullname": "Andrei Yakerson"
+        },
+        "_id": "hsGtxo",
+        "createdAt": 1754938369400
+    },
+    {
+        "title": "Bug 1754938376721",
         "severity": 3,
         "description": "Bug description",
         "labels": [
@@ -53,11 +136,11 @@
             "_id": "Bc7XrZ",
             "fullname": "Anna Yakerson"
         },
-        "_id": "GwDEYd",
-        "createdAt": 1754753052201
+        "_id": "B123Xy",
+        "createdAt": 1754938377842
     },
     {
-        "title": "Bug 1754753410644",
+        "title": "Bug 1754938378079",
         "severity": 3,
         "description": "Bug description",
         "labels": [
@@ -67,49 +150,63 @@
             "_id": "Bc7XrZ",
             "fullname": "Anna Yakerson"
         },
-        "_id": "6wH2Xo",
-        "createdAt": 1754753412339
+        "_id": "L0jHi4",
+        "createdAt": 1754938378729
     },
     {
-        "title": "Bug 1754754703218",
+        "title": "Bug 1754938378985",
         "severity": 3,
         "description": "Bug description",
         "labels": [
             "Critical"
         ],
         "creator": {
-            "_id": "9ns92F",
-            "fullname": "Andrei Yakerson"
+            "_id": "Bc7XrZ",
+            "fullname": "Anna Yakerson"
         },
-        "_id": "TKMMHX",
-        "createdAt": 1754754705129
+        "_id": "l9iIn6",
+        "createdAt": 1754938379695
     },
     {
-        "title": "Bug 1754754706208",
+        "title": "Bug 1754938379957",
         "severity": 3,
         "description": "Bug description",
         "labels": [
             "Critical"
         ],
         "creator": {
-            "_id": "9ns92F",
-            "fullname": "Andrei Yakerson"
+            "_id": "Bc7XrZ",
+            "fullname": "Anna Yakerson"
         },
-        "_id": "Bb10R8",
-        "createdAt": 1754754707772
+        "_id": "rhickW",
+        "createdAt": 1754938380638
     },
     {
-        "title": "Bug 1754754708716",
+        "title": "Bug 1754938380850",
         "severity": 3,
         "description": "Bug description",
         "labels": [
             "Critical"
         ],
         "creator": {
-            "_id": "9ns92F",
-            "fullname": "Andrei Yakerson"
+            "_id": "Bc7XrZ",
+            "fullname": "Anna Yakerson"
         },
-        "_id": "DBs6na",
-        "createdAt": 1754754710138
+        "_id": "kVX8IP",
+        "createdAt": 1754938381635
+    },
+    {
+        "title": "Bug 1754938391584",
+        "severity": 3,
+        "description": "Bug description",
+        "labels": [
+            "Critical"
+        ],
+        "creator": {
+            "_id": "Bc7XrZ",
+            "fullname": "Anna Yakerson"
+        },
+        "_id": "V40K2x",
+        "createdAt": 1754938393352
     }
 ]
